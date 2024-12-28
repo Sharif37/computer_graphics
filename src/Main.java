@@ -11,6 +11,10 @@ public class Main {
         System.out.println("Line from (2, 2) to (8, 5):");
         BresenhamAlgorithm.drawLine(1,1,8,5);
 
+        System.out.println("Bresenham Circle Algorithm: ");
+        System.out.println("Circle of radius (0, r) :");
+        BresenhamCircleAlgorithm.drawCircle(0,0,10);
+
 
         }
 
