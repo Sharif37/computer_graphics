@@ -12,10 +12,10 @@ public class MidPointCircle {
         while (x < y) {
             x++;
             if (p < 0) {
-                p = p + 2 * x + 1; // Move horizontally
+                p += 2 * x + 3; // Move horizontally
             } else {
                 y--;
-                p = p + 2 * x - 2 * y + 1; // Move diagonally
+                p += 2 * x - 2 * y + 1; // Move diagonally
             }
             BresenhamCircleAlgorithm.plotCirclePoints(xc, yc, x, y);
         }
