@@ -19,7 +19,7 @@ $(TARGET): $(SRC)
 
 # Clean rule
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGET) *.o *.out *.exe *.a *.so *.dll *.out
 
 # Phony targets (not actual files)
 .PHONY: build clean
