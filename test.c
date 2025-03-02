@@ -133,6 +133,31 @@ void palestineFlag(){
 
 }
 
+
+void drawEmoji(int x, int y, int radius){
+    circle(x, y, radius);
+   // circle(x-radius/3,y-radius/3 ,radius/10);
+    //circle(x+radius/3,y-radius/3 ,radius/10);
+    ellipse(x+radius/3,y-radius/3,0,360,radius/10,radius/5);
+    fillellipse(x+radius/3 , y-radius/3 , radius/10, radius/5);
+
+    pieslice(x - radius / 3, y - radius / 3, 0, 180, radius / 10);
+
+ setcolor(LIGHTGRAY);
+ arc(x, y + radius / 5, 150, 320, radius/2); 
+ arc(x+20, y + (radius / 3)- 40 , 180, 290, radius/1.5); 
+ // Calculate midpoint between arc centers
+int fill_x = x - 45;  // Midpoint between x and x+20
+int fill_y = y + 20;
+
+//circle(fill_x,fill_y,5);
+floodfill(fill_x, fill_y, LIGHTGRAY);
+ setcolor(BLACK);
+
+
+}
+
+
 int drawSmiley(int x, int y, int radius) {
     setcolor(BLACK);
     setlinestyle(SOLID_LINE, 0, 5);
@@ -167,11 +192,22 @@ void moveSmiley(int *x, int *y, int radius) {
                     return;
             }
             cleardevice();
-            drawSmiley(*x, *y, radius);
+            //drawSmiley(*x, *y, radius);
+            drawEmoji(*x,*y,radius);
         }
     }
 }
-   
+
+
+
+
+void drawWiFi(int x, int y) {
+    for (int i = 1; i <= 3; i++) {
+        arc(x, y, 45, 135, i * 15);
+    }
+    circle(x, y , 5);
+}
+
 void movewifi(int *x,int *y){
     char ch;
     while(1){
@@ -200,12 +236,8 @@ void movewifi(int *x,int *y){
 }
 
 
-void drawWiFi(int x, int y) {
-    for (int i = 1; i <= 3; i++) {
-        arc(x, y, 45, 135, i * 15);
-    }
-    circle(x, y , 5);
-}
+
+
 void shape3(){
     setcolor(BLUE);
     setfillstyle(SOLID_FILL, BLUE);
@@ -372,6 +404,37 @@ void moveAeroplane(int *x, int *y) {
 }
     
 
+
+void drawAngryFace(int x, int y, int radius) {
+   
+    // Face outline
+    circle(x, y, radius);
+    
+    // Eye positions
+    int eyeOffsetX = radius / 3;
+    int eyeOffsetY = radius / 5;
+    int eyeWidth = radius / 5;
+    int eyeHeight = radius / 4;
+    
+    // Draw eyes
+    ellipse(x - eyeOffsetX, y - eyeOffsetY, 0, 360, eyeWidth, eyeHeight);
+    ellipse(x + eyeOffsetX, y - eyeOffsetY, 0, 360, eyeWidth, eyeHeight);
+    
+    // Pupils
+    int pupilSize = radius / 10;
+    setfillstyle(SOLID_FILL, BLACK);
+    fillellipse(x - eyeOffsetX + 5, y - eyeOffsetY, pupilSize, pupilSize);
+    fillellipse(x + eyeOffsetX - 5, y - eyeOffsetY, pupilSize, pupilSize);
+    
+    // Angry eyebrows
+    int browOffsetY = eyeOffsetY + 10;
+    line(x - eyeOffsetX - 10, y - browOffsetY, x - eyeOffsetX + 10, y - eyeOffsetY);
+    line(x + eyeOffsetX + 10, y - browOffsetY, x + eyeOffsetX - 10, y - eyeOffsetY);
+    
+    // Frown (mouth)
+    int mouthRadius = radius / 3;
+    arc(x, y + radius / 4, 200, 340, mouthRadius);
+}
 int main() {
     int gd = DETECT, gm;
     int width = 640, height = 480;
@@ -381,14 +444,14 @@ int main() {
 
     setcolor(BLACK);
     setfillstyle(SOLID_FILL, BLACK);
-    setlinestyle(SOLID_LINE, 0, 5);
+    setlinestyle(SOLID_LINE, 0, 1);
 
     //shape1();
     //palestineFlag();
     //nationalFlag();
     //madrid_logo()  ;
     //shape3();
-    int x = 100, y = 200;
+    int x = 300, y = 150;
     // drawSmiley(x, y, 100);
     // moveSmiley(&x, &y, 100);
     
@@ -401,8 +464,11 @@ int main() {
     // moveMonitor(&x, &y, 370, 250);
     
     //cycle();
-    drawAeroplane(100, 200);
-    moveAeroplane(&x, &y);
+    // drawAeroplane(100, 200);
+    // moveAeroplane(&x, &y);
+    // drawEmoji(300, 150, 100);
+    // moveSmiley(&x,&y,100) ;
+    drawAngryFace(300,200,80);
     
     getch();
     getchar();
