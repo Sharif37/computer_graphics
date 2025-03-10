@@ -1,4 +1,7 @@
 #include <graphics.h>
+#include <math.h>
+#include <stdlib.h>
+#include <conio.h>
 
 
 void shape1(){
@@ -446,7 +449,7 @@ int main() {
     setfillstyle(SOLID_FILL, BLACK);
     setlinestyle(SOLID_LINE, 0, 1);
 
-    //shape1();
+    shape1();
     //palestineFlag();
     //nationalFlag();
     //madrid_logo()  ;
@@ -468,10 +471,10 @@ int main() {
     // moveAeroplane(&x, &y);
     // drawEmoji(300, 150, 100);
     // moveSmiley(&x,&y,100) ;
-    drawAngryFace(300,200,80);
+    //drawAngryFace(300,200,80);
+    
     
     getch();
-    getchar();
     closegraph();
     return 0;
 }

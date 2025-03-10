@@ -208,7 +208,7 @@ void drawpoly(int n_points, int* points);
 void ellipse( int x, int y, int stangle, int endangle, int xradius, int yradius );
 void fillellipse( int x, int y, int xradius, int yradius );
 void fillpoly(int n_points, int* points);
-void floodfill( int x, int y, int border );
+void floodfill( int x, int y, int border ); 
 void line( int x1, int y1, int x2, int y2 );
 void linerel( int dx, int dy );
 void lineto( int x, int y );
